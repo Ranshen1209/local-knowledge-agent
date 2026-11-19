@@ -1,0 +1,6 @@
+.lka/
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite3
+.venv/

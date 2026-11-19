@@ -1,0 +1,35 @@
+{
+  "k": 5,
+  "cases": [
+    {
+      "id": "positive-unicode61-rank",
+      "query": "unicode61",
+      "expected_doc": "examples/fts5-baseline.md"
+    },
+    {
+      "id": "positive-bicycle",
+      "query": "bicycle",
+      "expected_doc": "examples/bicycle.md"
+    },
+    {
+      "id": "positive-cjk-token",
+      "query": "龙井",
+      "expected_doc": "examples/longjing-spaced.md"
+    },
+    {
+      "id": "positive-cjk-exact",
+      "query": "茶香很浓",
+      "expected_doc": "examples/longjing-continuous.md"
+    },
+    {
+      "id": "synonym-bike",
+      "query": "bike",
+      "expected_doc": "examples/bicycle.md"
+    },
+    {
+      "id": "cjk-substring",
+      "query": "茶香",
+      "expected_doc": "examples/longjing-continuous.md"
+    }
+  ]
+}

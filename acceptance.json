@@ -1,0 +1,14 @@
+{
+  "scope": "lexical-baseline",
+  "commands": ["index", "search", "eval-baseline"],
+  "unittest": "python3 -m unittest exits 0",
+  "search_empty": "exit 0",
+  "search_special_characters": "exit 0 and no MATCH syntax error",
+  "reindex": "document count unchanged and search output stable",
+  "eval_baseline": "exit 1 while a real lexical miss remains",
+  "known_misses": [
+    "bike does not match bicycle",
+    "茶香 does not match the unicode61 token 茶香很浓"
+  ],
+  "not_goals": ["ui", "login", "deploy", "llm", "web-crawl", "embedding", "synonym-dict", "chinese-segmenter"]
+}

@@ -85,7 +85,7 @@ def run_eval(conn: sqlite3.Connection, path: Path = EVAL_FILE) -> tuple[int, str
     present = sum(1 for case in cases if _find_body(conn, case["expected_doc"]) is not None)
     if present == 0:
         raise LkaError(
-            "索引里没有任何评测期望文档。请在仓库根目录执行: python3 -m lka index examples。这不是检索评测失败。",
+            "索引里没有任何评测期望文档。请在仓库根目录执行: python3 -m lka index notes。这不是检索评测失败。",
             2,
         )
     blocks: list[str] = []

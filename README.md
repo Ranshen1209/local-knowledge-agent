@@ -22,8 +22,8 @@
 在仓库根目录执行：
 
 ```bash
-python3 -m lka index examples
-python3 -m lka search unicode61
+python3 -m lka index notes
+python3 -m lka search xylophone-quartz-7741
 python3 -m lka eval-baseline
 ```
 
@@ -35,16 +35,16 @@ python3 -m lka eval-baseline
 
 ## 排序
 
-FTS5 的 `bm25()` 把常见 BM25 乘了 -1，所以**更好的命中分值更小、更负**。官方写法是 `ORDER BY bm25(ft)`，默认升序，最好的排在前面。本机 SQLite 3.45.1 上，`unicode61` 出现更多次的笔记分值更负，排名第 1。实现使用 `ORDER BY bm25(documents_fts) ASC`。
+FTS5 的 `bm25()` 把常见 BM25 乘了 -1，所以**更好的命中分值更小、更负**。官方写法是 `ORDER BY bm25(ft)`，默认升序，最好的排在前面。本机 SQLite 3.45.1 上已确认这一点。实现使用 `ORDER BY bm25(documents_fts) ASC`，排名第 1 是最好命中。
 
 ## 这次实际失败的原因
 
 两条失败都是对真实索引跑出来的，不是写死的异常。
 
-1. `bike` 期望 `examples/bicycle.md`。笔记里的词是 `bicycle`。`unicode61` 只做整词匹配，没有同义词，两个 token 对不上，结果为空。
-2. `茶香` 期望 `examples/longjing-continuous.md`。正文里的 token 是整段 `茶香很浓`（逗号才切开）。`茶香` 只是这个 token 的子串，MATCH 不命中。同一篇笔记用完整 token `茶香很浓` 可以命中；分开写的 `龙井` 也可以命中 `examples/longjing-spaced.md`。
+1. `aspirin` 期望 `notes/calendar.txt`。笔记里的词是 `acetylsalicylic`，没有 `aspirin`。`unicode61` 不做同义匹配，结果为空。`schedule` 同样对不上这篇笔记里的 `calendar`。
+2. `词法索引` 期望 `notes/zhongwen.md`。正文整行是一个 token，`词法索引` 只是其中的子串，MATCH 不命中。用整句 `本地知识库只做词法索引不做语义扩展` 可以命中。
 
-正例 `unicode61` 会命中，并且重复次数更多的 `examples/fts5-baseline.md` 排在第 1。
+正例 `xylophone-quartz-7741` 只命中 `notes/marker.md`。`acetylsalicylic` 命中 `notes/calendar.txt`。
 
 未做，也不在这次范围内：中文分词、同义词、向量。没有用 trigram 去掩盖上面的失败。FTS5 trigram 的全文查询里，少于 3 个 Unicode 字符的子串不命中；那是官方行为，这里没有启用 trigram。
 

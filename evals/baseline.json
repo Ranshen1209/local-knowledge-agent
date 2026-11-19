@@ -2,34 +2,39 @@
   "k": 5,
   "cases": [
     {
-      "id": "positive-unicode61-rank",
-      "query": "unicode61",
-      "expected_doc": "examples/fts5-baseline.md"
+      "id": "marker-hit",
+      "query": "xylophone-quartz-7741",
+      "expected_doc": "notes/marker.md"
     },
     {
-      "id": "positive-bicycle",
-      "query": "bicycle",
-      "expected_doc": "examples/bicycle.md"
+      "id": "calendar-hit",
+      "query": "calendar",
+      "expected_doc": "notes/calendar.txt"
     },
     {
-      "id": "positive-cjk-token",
-      "query": "龙井",
-      "expected_doc": "examples/longjing-spaced.md"
+      "id": "acetylsalicylic-hit",
+      "query": "acetylsalicylic",
+      "expected_doc": "notes/calendar.txt"
     },
     {
-      "id": "positive-cjk-exact",
-      "query": "茶香很浓",
-      "expected_doc": "examples/longjing-continuous.md"
+      "id": "zhongwen-sentence",
+      "query": "本地知识库只做词法索引不做语义扩展",
+      "expected_doc": "notes/zhongwen.md"
     },
     {
-      "id": "synonym-bike",
-      "query": "bike",
-      "expected_doc": "examples/bicycle.md"
+      "id": "synonym-aspirin",
+      "query": "aspirin",
+      "expected_doc": "notes/calendar.txt"
+    },
+    {
+      "id": "synonym-schedule",
+      "query": "schedule",
+      "expected_doc": "notes/calendar.txt"
     },
     {
       "id": "cjk-substring",
-      "query": "茶香",
-      "expected_doc": "examples/longjing-continuous.md"
+      "query": "词法索引",
+      "expected_doc": "notes/zhongwen.md"
     }
   ]
 }

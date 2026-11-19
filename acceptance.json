@@ -7,8 +7,8 @@
   "reindex": "document count unchanged and search output stable",
   "eval_baseline": "exit 1 while a real lexical miss remains",
   "known_misses": [
-    "bike does not match bicycle",
-    "茶香 does not match the unicode61 token 茶香很浓"
+    "aspirin does not match acetylsalicylic",
+    "词法索引 does not match the full-line token"
   ],
   "not_goals": ["ui", "login", "deploy", "llm", "web-crawl", "embedding", "synonym-dict", "chinese-segmenter"]
 }

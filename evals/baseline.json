@@ -1,0 +1,40 @@
+{
+  "k": 5,
+  "cases": [
+    {
+      "id": "marker-hit",
+      "query": "xylophone-quartz-7741",
+      "expected_doc": "notes/marker.md"
+    },
+    {
+      "id": "calendar-hit",
+      "query": "calendar",
+      "expected_doc": "notes/calendar.txt"
+    },
+    {
+      "id": "acetylsalicylic-hit",
+      "query": "acetylsalicylic",
+      "expected_doc": "notes/calendar.txt"
+    },
+    {
+      "id": "zhongwen-sentence",
+      "query": "本地知识库只做词法索引不做语义扩展",
+      "expected_doc": "notes/zhongwen.md"
+    },
+    {
+      "id": "synonym-aspirin",
+      "query": "aspirin",
+      "expected_doc": "notes/calendar.txt"
+    },
+    {
+      "id": "synonym-schedule",
+      "query": "schedule",
+      "expected_doc": "notes/calendar.txt"
+    },
+    {
+      "id": "cjk-substring",
+      "query": "词法索引",
+      "expected_doc": "notes/zhongwen.md"
+    }
+  ]
+}
